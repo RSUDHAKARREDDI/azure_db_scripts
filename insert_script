@@ -1,6 +1,6 @@
 DELETE FROM RESULTS_DECLARED;
 INSERT  into SCREENER.dbo.[RESULTS_DECLARED] (NAME,BSE_Code,NSE_Code,Industry,Current_Price,Market_Capitalization,
-Promoter_holding,Price_to_Earning,Industry_PE,Return_over_1month,Return_over_3months,Return_over_6months,
+Promoter_holding,Price_to_Earning,Industry_PE,Return_over_1week,Return_over_1month,Return_over_3months,Return_over_6months,
 EPS_latest_quarter,EPS_preceding_quarter,EPS_preceding_year_quarter,Debt,OPM_latest_quarter,Return_on_equity,Return_on_capital_employed,
 Price_to_book_value)
 Select 
@@ -13,6 +13,7 @@ CASE WHEN Market_Capitalization='NULL' THEN NULL ELSE CAST(Market_Capitalization
 CASE WHEN Promoter_holding='NULL' THEN NULL ELSE CAST(Promoter_holding AS decimal) END Promoter_holding,
 CASE WHEN Price_to_Earning='NULL' THEN NULL ELSE CAST(Price_to_Earning AS decimal) END Price_to_Earning,
 CASE WHEN Industry_PE='NULL' THEN NULL ELSE CAST(Industry_PE AS decimal) END Industry_PE,
+CASE WHEN Return_over_1week='NULL' THEN NULL ELSE CAST(Return_over_1week AS decimal) END Return_over_1week,
 CASE WHEN Return_over_1month='NULL' THEN NULL ELSE CAST(Return_over_1month AS decimal) END Return_over_1month,
 CASE WHEN Return_over_3months='NULL' THEN NULL ELSE CAST(Return_over_3months AS decimal) END Return_over_3months,
 CASE WHEN Return_over_6months='NULL' THEN NULL ELSE CAST(Return_over_6months AS decimal) END Return_over_6months,
